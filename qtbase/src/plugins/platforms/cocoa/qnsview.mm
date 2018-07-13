@@ -914,8 +914,7 @@ QT_WARNING_POP
     // turn it on in ALL case. That means EVERY QWindow gets to pay the cost of
     // mouse moves delivered to it (Apple recommends keeping it OFF because there
     // is a performance hit). So it goes.
-    NSUInteger trackingOptions = NSTrackingMouseEnteredAndExited | NSTrackingActiveInActiveApp
-                                 | NSTrackingInVisibleRect | NSTrackingMouseMoved | NSTrackingCursorUpdate;
+    NSUInteger trackingOptions = NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways | NSTrackingMouseMoved | NSTrackingCursorUpdate;
     [m_trackingArea release];
     m_trackingArea = [[NSTrackingArea alloc] initWithRect:[self frame]
                                                   options:trackingOptions
