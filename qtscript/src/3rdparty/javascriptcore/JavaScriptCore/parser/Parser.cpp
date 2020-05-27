@@ -29,7 +29,7 @@
 #include <wtf/Vector.h>
 #include <memory>
 
-using std::auto_ptr;
+using std::unique_ptr;
 
 #ifndef yyparse
 extern int jscyyparse(void*);

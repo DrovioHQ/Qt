@@ -1385,7 +1385,7 @@ namespace JSC {
 
         using ParserArenaRefCounted::operator new;
 
-        void adoptData(std::auto_ptr<ScopeNodeData> data)
+        void adoptData(std::unique_ptr<ScopeNodeData>& data)
         {
             ASSERT(!data->m_arena.contains(this));
             ASSERT(!m_data);

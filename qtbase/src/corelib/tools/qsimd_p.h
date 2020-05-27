@@ -452,24 +452,6 @@ static __forceinline unsigned long _bit_scan_forward(uint val)
     _BitScanForward(&result, val);
     return result;
 }
-#  elif (defined(Q_CC_CLANG) || (defined(Q_CC_GNU) && Q_CC_GNU < 405)) \
-    && !defined(Q_CC_INTEL)
-// Clang is missing the intrinsic for _bit_scan_reverse
-// GCC only added it in version 4.5
-static inline __attribute__((always_inline))
-unsigned _bit_scan_reverse(unsigned val)
-{
-    unsigned result;
-    asm("bsr %1, %0" : "=r" (result) : "r" (val));
-    return result;
-}
-static inline __attribute__((always_inline))
-unsigned _bit_scan_forward(unsigned val)
-{
-    unsigned result;
-    asm("bsf %1, %0" : "=r" (result) : "r" (val));
-    return result;
-}
 #  endif
 #endif // Q_PROCESSOR_X86
 
